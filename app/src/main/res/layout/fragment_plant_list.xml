@@ -5,19 +5,21 @@
     android:layout_height="match_parent"
     android:background="#82EB5A"
     android:padding="20dp"
-    tools:context=".PlantListFragment">
+    tools:context=".Fragment.PlantListFragment">
 
 
     <TextView
+        android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Available Plants"
         android:textSize="20dp" />
 
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_plant_list_fragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="35dp"/>
+        android:layout_marginTop="35dp" />
 
 </FrameLayout>

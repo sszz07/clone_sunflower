@@ -1,4 +1,3 @@
 package com.example.sunflower
-
-class PlantList(var fruitImage:Int,var fruitName :String) {
+data class PlantList(var fruitImage:Int,var fruitName :String,var fruitContent :String) {
 }
