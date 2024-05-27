@@ -15,12 +15,8 @@
         android:theme="@style/Theme.Sunflower"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-        <activity
-            android:name=".Practice.MainActivityTest2"
-            android:exported="false" />
-        <activity
-            android:name=".MainActivity"
-            android:exported="false" />
+
+
         <activity
             android:name=".Practice.SqliteTest"
             android:exported="false" />
@@ -28,7 +24,7 @@
             android:name=".SelectFruitActivity"
             android:exported="false" />
         <activity
-            android:name=".Practice.MainActivityTest"
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
