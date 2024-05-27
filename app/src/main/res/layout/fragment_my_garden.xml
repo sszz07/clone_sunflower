@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#82EB5A"
+    android:padding="10dp"
     tools:context=".Fragment.MyGardenFragment">
 
 
     <TextView
+        android:id="@+id/tv_my_garden"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Your garden is empty"
@@ -16,6 +18,7 @@
         android:layout_gravity="center"/>
 
     <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_my_garden_fragment"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ADD  PLANT"
@@ -23,4 +26,10 @@
         android:gravity="center"
         android:layout_gravity="center"
         android:layout_marginTop="50dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_my_garden_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="35dp" />
 </FrameLayout>

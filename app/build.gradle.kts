@@ -35,10 +35,10 @@ android {
     }
 
     //뷰페이저 때문에 넣음
-    buildFeatures{
+    buildFeatures {
         viewBinding = true
         //noinspection DataBindingWithoutKapt
-        dataBinding =  true
+        dataBinding = true
     }
 }
 
@@ -53,5 +53,13 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation(kotlin("script-runtime"))
+
+    //레트로핏 라이버러리 설정
+    implementation("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation("com.squareup.retrofit2:retrofit-mock:2.9.0")
+    implementation("com.google.code.gson:gson:2.8.9")
+    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")
 
 }

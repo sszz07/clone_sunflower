@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/make_user_dialog"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="#82EB5A"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="삭제 하시겠습니까?"
+        android:textSize="30dp" />
+
+
+    <Button
+        android:id="@+id/bt_dialog_yes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="@color/white"
+        android:text="네"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+
+    <Button
+        android:id="@+id/bt_dialog_no"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:text="아니오"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+</LinearLayout>

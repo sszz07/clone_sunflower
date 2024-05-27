@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#82EB5A"
-    android:padding="20dp"
+    android:padding="10dp"
     tools:context=".Fragment.PlantListFragment">
 
 
@@ -12,6 +12,7 @@
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
         android:text="Available Plants"
         android:textSize="20dp" />
 

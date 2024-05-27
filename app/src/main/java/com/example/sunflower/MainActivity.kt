@@ -9,6 +9,18 @@ import com.example.sunflower.Fragment.PlantListFragment
 import com.example.sunflower.databinding.ActivityMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
 
+/*
+      * 1.binding.vpViewpagerMain.apply {
+            adapter = viewPager2Adatper
+
+            registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                }
+            })
+        }
+        -> 코드는 왜 여기에 넣었는지 설명할줄은 알아야 한다
+      * */
 class MainActivity : AppCompatActivity() {
     lateinit var binding: ActivityMainBinding
 
@@ -19,17 +31,11 @@ class MainActivity : AppCompatActivity() {
 
         initViewPager()
 
-
-
-        //data클래스를 공부하면서 toString,equals,hashcode는 data를 사용하지 않으면 안되다
-        //toString 문자열로 보여주기 위함
-        //equals는 메모리가 같은지 확인
-        //hashcode는 같은 객체로 만들어주기 위함
     }
 
     private fun initViewPager() {
         //ViewPager2 Adapter 셋팅
-        var viewPager2Adatper = ViewPager2Adapter(this)
+        val viewPager2Adatper = ViewPager2Adapter(this)
         viewPager2Adatper.addFragment(MyGardenFragment())
         viewPager2Adatper.addFragment(PlantListFragment())
 
