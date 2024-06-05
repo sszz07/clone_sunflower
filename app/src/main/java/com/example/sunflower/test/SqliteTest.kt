@@ -1,4 +1,4 @@
-package com.example.sunflower.Practice
+package com.example.sunflower.test
 
 import android.os.Bundle
 import android.util.Log
@@ -42,10 +42,10 @@ class SqliteTest : AppCompatActivity() {
 //            }
 //        }
 
-        selectBtn.setOnClickListener {
-            val fruitName = editInsert.text
-            textView.text = dbHelper.select(database, fruitName.toString())
-        }
+//        selectBtn.setOnClickListener {
+//            val fruitName = editInsert.text
+//            textView.text = dbHelper.select(database, fruitName.toString())
+//        }
 
         deleteBtn.setOnClickListener {
 

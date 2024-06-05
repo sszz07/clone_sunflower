@@ -6,7 +6,6 @@ import android.database.sqlite.SQLiteDatabase
 import android.graphics.Paint
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
@@ -56,20 +55,24 @@ class SelectFruitActivity : AppCompatActivity() {
 
 
         val result = dbHelper.select(database, name.toString())
-        Log.e("result", result.toString() + "값 확인")
-
 
         //db에 값이 존재했을때 그리고 PlantListFragment에서 선택했을때
-        if (result != null && fragment == "PlantListFragment") {
+        //0이면 존재하지 않음
+        //1이면 존재함
+
+        //플러스 버튼을 보여줘야 할때
+        if (result == 1 && fragment == "PlantListFragment") {
             imgbtn_my_garden.visibility = View.INVISIBLE
             imgbtn_my_garden_delete.visibility = View.INVISIBLE
         }
-
         //db에 값이 존재했을때 그리고 MyGardenFragment에서 선택했을때
-        else if (result != null && fragment == " MyGardenFragment") {
+        //휴지통 이미지 버튼을 보여주기 위해서
+        else if (result == 1 && fragment == " MyGardenFragment") {
             imgbtn_my_garden_delete.visibility = View.VISIBLE
             imgbtn_my_garden.visibility = View.INVISIBLE
-        } else if (fragment == "PlantListFragment") {
+        }
+        //플러스 휴지통 버튼 둘다 안보여줘야 할때
+        else if (fragment == "PlantListFragment") {
             imgbtn_my_garden.visibility = View.VISIBLE
             imgbtn_my_garden_delete.visibility = View.INVISIBLE
         }

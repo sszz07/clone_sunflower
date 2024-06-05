@@ -1,10 +1,11 @@
-package com.example.sunflower
+package com.example.sunflower.test
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.example.sunflower.PlantList
+import com.example.sunflower.R
 
 class DataViewModel : ViewModel() {
     private val repository = Repository
@@ -14,7 +15,7 @@ class DataViewModel : ViewModel() {
 
 
     fun data(){
-        repository.getData(plantMakeValue) //레포지토리를 사용하여 데이터베이스에서 값 가져옴
+        Repository.getData(plantMakeValue) //레포지토리를 사용하여 데이터베이스에서 값 가져옴
 
     }
 

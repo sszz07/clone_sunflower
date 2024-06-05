@@ -1,23 +1,16 @@
-package com.example.sunflower.Fragment
+package com.example.sunflower.fragment
 
-import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.example.sunflower.Adapter.PlantListAdapter
-import com.example.sunflower.DBHelper
-import com.example.sunflower.PlantList
+import com.example.sunflower.test.DataViewModel
 import com.example.sunflower.R
 
 
 class MyGardenFragment : Fragment() {
+    val getMyGarden =  DataViewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
@@ -28,76 +21,59 @@ class MyGardenFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val rv_plant_list_fragment = view.findViewById<RecyclerView>(R.id.rv_my_garden_fragment)
-        val tv_my_garden = view.findViewById<TextView>(R.id.tv_my_garden)
-        val bt_my_garden_fragment = view.findViewById<Button>(R.id.bt_my_garden_fragment)
 
-        if (getMyGarden().size == 0) {
-            tv_my_garden.visibility = View.VISIBLE
-            bt_my_garden_fragment.visibility = View.VISIBLE
-        } else {
-            tv_my_garden.visibility = View.INVISIBLE
-            bt_my_garden_fragment.visibility = View.INVISIBLE
-        }
-
-
-        rv_plant_list_fragment.layoutManager = GridLayoutManager(context, 2)
-        rv_plant_list_fragment.setHasFixedSize(true)
-        rv_plant_list_fragment.adapter = PlantListAdapter(getMyGarden(), "MyGardenFragment")
+//        val rvPlantListFragment = view.findViewById<RecyclerView>(R.id.rv_my_garden_fragment)
+//        val tvMyGarden = view.findViewById<TextView>(R.id.tv_my_garden)
+//        val btMyGardenFragment = view.findViewById<Button>(R.id.bt_my_garden_fragment)
+//
+//        if (getMyGarden.getData().value?.size == 0) {
+//            tvMyGarden.visibility = View.VISIBLE
+//            btMyGardenFragment.visibility = View.VISIBLE
+//        } else {
+//            tvMyGarden.visibility = View.INVISIBLE
+//            btMyGardenFragment.visibility = View.INVISIBLE
+//        }
+//
+//
+//        rvPlantListFragment.layoutManager = GridLayoutManager(context, 2)
+//        rvPlantListFragment.setHasFixedSize(true)
+//        rvPlantListFragment.adapter = PlantListAdapter(getMyGarden.getData(), "MyGardenFragment")
 
     }
 
-    override fun onStart() {
-        super.onStart()
-        val rv_plant_list_fragment = view?.findViewById<RecyclerView>(R.id.rv_my_garden_fragment)
-        val tv_my_garden = view?.findViewById<TextView>(R.id.tv_my_garden)
-        val bt_my_garden_fragment = view?.findViewById<Button>(R.id.bt_my_garden_fragment)
-        reLoad(rv_plant_list_fragment!!, tv_my_garden!!, bt_my_garden_fragment!!)
+//    override fun onStart() {
+//        super.onStart()
+//        val rvPlantListFragment = view?.findViewById<RecyclerView>(R.id.rv_my_garden_fragment)
+//        val tvMyGarden = view?.findViewById<TextView>(R.id.tv_my_garden)
+//        val btMyGardenFragment = view?.findViewById<Button>(R.id.bt_my_garden_fragment)
+//        reLoad(rvPlantListFragment!!, tvMyGarden!!, btMyGardenFragment!!)
+//
+//
+//        //Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type RecyclerView?->에러가 날수도 있음
+//        //rv_plant_list_fragment.layoutManager = GridLayoutManager(context, 2)
+//        //rv_plant_list_fragment.setHasFixedSize(true)
+//        //rv_plant_list_fragment.adapter = PlantListAdapter(getMyGarden(), "MyGardenFragment")
+//    }
 
 
-        //Only safe (?.) or non-null asserted (!!.) calls are allowed on a nullable receiver of type RecyclerView?->에러가 날수도 있음
-        //rv_plant_list_fragment.layoutManager = GridLayoutManager(context, 2)
-        //rv_plant_list_fragment.setHasFixedSize(true)
-        //rv_plant_list_fragment.adapter = PlantListAdapter(getMyGarden(), "MyGardenFragment")
-    }
 
 
-    @SuppressLint("Range", "Recycle")
-    fun getMyGarden(): ArrayList<PlantList> {
-        var dbHelper = DBHelper(context, "MyGarden.db", null, 1)
-        val db = dbHelper.readableDatabase
-        val cursor = db.rawQuery("SELECT fruit_name,fruit_content,fruit_image FROM my_garden", null)
 
-        //데이터 담을 리스트
-        val plantList = ArrayList<PlantList>()
-        var i = 0
-        //while true 였을때 계속 반복
-        while (cursor.moveToNext()) {
-            val fruit_name = cursor.getString(cursor.getColumnIndex("fruit_name"))
-            val fruit_content = cursor.getString(cursor.getColumnIndex("fruit_content"))
-            val fruit_image = cursor.getInt(cursor.getColumnIndex("fruit_image"))
-            plantList.add(i, PlantList(fruit_image, fruit_name, fruit_content))
-            i++
-        }
-        return plantList
-    }
-
-
-    fun reLoad(
-        rv_plant_list_fragment: RecyclerView,
-        tv_my_garden: TextView,
-        bt_my_garden_fragment: Button
-    ) {
-        if (getMyGarden().size == 0) {
-            tv_my_garden.visibility = View.VISIBLE
-            bt_my_garden_fragment.visibility = View.VISIBLE
-        } else {
-            tv_my_garden.visibility = View.INVISIBLE
-            bt_my_garden_fragment.visibility = View.INVISIBLE
-        }
-
-        rv_plant_list_fragment.layoutManager = GridLayoutManager(context, 2)
-        rv_plant_list_fragment.setHasFixedSize(true)
-        rv_plant_list_fragment.adapter = PlantListAdapter(getMyGarden(), "MyGardenFragment")
-    }
+//    fun reLoad(
+//        rvPlantListFragment: RecyclerView,
+//        tvMyGarden: TextView,
+//        btMyGardenFragment: Button
+//    ) {
+//        if (getMyGarden.getData().value?.size == 0) {
+//            tvMyGarden.visibility = View.VISIBLE
+//            btMyGardenFragment.visibility = View.VISIBLE
+//        } else {
+//            tvMyGarden.visibility = View.INVISIBLE
+//            btMyGardenFragment.visibility = View.INVISIBLE
+//        }
+//
+//        rvPlantListFragment.layoutManager = GridLayoutManager(context, 2)
+//        rvPlantListFragment.setHasFixedSize(true)
+//        rvPlantListFragment.adapter = PlantListAdapter(getMyGarden.getData(), "MyGardenFragment")
+//    }
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="#82EB5A"
     android:padding="10dp"
-    tools:context=".Fragment.PlantListFragment">
+    tools:context=".fragment.PlantListFragment">
 
 
     <TextView

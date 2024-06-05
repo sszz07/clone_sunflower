@@ -15,17 +15,28 @@
         android:theme="@style/Theme.Sunflower"
         android:usesCleartextTraffic="true"
         tools:targetApi="31">
-
+        <activity
+            android:name=".test.PhotoCollectionActivity"
+            android:exported="false" />
 
         <activity
-            android:name=".Practice.SqliteTest"
+            android:name=".test.MainActivityTestMvvm"
+            android:exported="false" />
+        <activity
+            android:name=".test.SqliteTest"
             android:exported="false" />
         <activity
             android:name=".SelectFruitActivity"
             android:exported="false" />
+
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="false" />
+
+        <activity
+            android:name=".test.MainActivityRetrofit"
+            android:exported="true"
+            tools:ignore="DuplicateActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -2,6 +2,7 @@ package com.example.sunflower
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
@@ -44,16 +45,18 @@ class DBHelper(
     }
 
     //select문
+    //디비에 저장되어있는지 존재 여부 확인
     @SuppressLint("Range", "Recycle")
-    fun select(db: SQLiteDatabase, fruit_name: String): String? {
-        val sql = " SELECT * FROM my_garden  WHERE fruit_name='${fruit_name}'"
+    fun select(db: SQLiteDatabase, fruitName: String): Int {
+        val sql = " SELECT * FROM my_garden  WHERE fruit_name='${fruitName}'"
         val result = db.rawQuery(sql, null)
-        var str: String? = null
-        while (result.moveToNext()) {
-            str += "번호 :" + result.getString(result.getColumnIndex("idx")) + "\n" +
-                    "데이터 :" + result.getString(result.getColumnIndex("fruit_name"))
+
+
+        if (result.getCount() > 0) {
+            return result.getCount()
+        } else {
+            return 0
         }
-        return str
     }
 
 

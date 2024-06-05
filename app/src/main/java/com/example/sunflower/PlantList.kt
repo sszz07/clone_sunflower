@@ -10,5 +10,4 @@ data class PlantList(
     @SerializedName("fruitImage") var fruitImage: Int,
     @SerializedName("fruitName") var fruitName: String,
     @SerializedName("fruitContent") var fruitContent: String
-) {
-}
+)
