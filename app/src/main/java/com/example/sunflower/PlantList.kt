@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 //equals는 메모리가 같은지 확인
 //hashcode는 같은 객체로 만들어주기 위함
 data class PlantList(
-    @SerializedName("fruitImage") var fruitImage: Int,
+    @SerializedName("fruitImage") var fruitImage: String?,
     @SerializedName("fruitName") var fruitName: String,
     @SerializedName("fruitContent") var fruitContent: String
 )

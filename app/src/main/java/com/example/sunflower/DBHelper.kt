@@ -27,7 +27,7 @@ class DBHelper(
         //CREATE TABLE IF NOT EXISTS 테이블이 존재하지 않는다면
         val sql: String = " CREATE TABLE IF NOT EXISTS my_garden( " +
                 "    idx INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "    fruit_image INTEGER,fruit_name TEXT,fruit_content TEXT)  "
+                "    fruit_image TEXT,fruit_name TEXT,fruit_content TEXT)  "
         db?.execSQL(sql) //데이터를 반환하지 않는 단일 SQL 문을 만들어 줍니다
     }
 
@@ -38,7 +38,7 @@ class DBHelper(
     }
 
     //insert
-    fun insert(db: SQLiteDatabase, fruitName: String, fruitContent: String, fruitImage: Int) {
+    fun insert(db: SQLiteDatabase, fruitName: String, fruitContent: String, fruitImage: String) {
         val sql =
             " INSERT INTO my_garden(fruit_name,fruit_content,fruit_image) VALUES('${fruitName}','${fruitContent}','${fruitImage}')"
         db.execSQL(sql)

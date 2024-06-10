@@ -13,6 +13,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 
 /*
  * 1.SelectFruit -> SelectFruitActivity 어떤 클래스인지 구분하기 위해 Activity 넣기
@@ -40,13 +41,16 @@ class SelectFruitActivity : AppCompatActivity() {
 
         val name = intent.getStringExtra("name")
         val content = intent.getStringExtra("content")
-        val image = intent.getIntExtra("image", 0)
+        val image = intent.getStringExtra("image")
         val fragment = intent.getStringExtra("fragment")
 
 
         tv_select_fruit_name.text = name
         tv_select_fruit_content.text = content
-        imv_fruit_image.setImageResource(image)
+        Glide.with(this)
+            .load(image)
+            .into(imv_fruit_image)
+
 
         tv_wiki.paintFlags = Paint.UNDERLINE_TEXT_FLAG
 
@@ -87,7 +91,7 @@ class SelectFruitActivity : AppCompatActivity() {
 
         imgbtn_my_garden.setOnClickListener {
             //insert함수 호출
-            dbHelper.insert(database, name.toString(), content.toString(), image)
+            dbHelper.insert(database, name.toString(), content.toString(),image.toString() )
             Toast.makeText(this, "추가 되었습니다", Toast.LENGTH_SHORT).show()
             imgbtn_my_garden.visibility = View.INVISIBLE
         }
