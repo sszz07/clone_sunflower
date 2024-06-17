@@ -14,6 +14,8 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
+import com.example.sunflower.model.DBHelper
+import com.example.sunflower.model.Repository
 
 /*
  * 1.SelectFruit -> SelectFruitActivity 어떤 클래스인지 구분하기 위해 Activity 넣기
@@ -58,20 +60,20 @@ class SelectFruitActivity : AppCompatActivity() {
         imb_back.setOnClickListener { onBackPressed() }
 
 
-        val result = dbHelper.select(database, name.toString())
+        val result = Repository()
+        val count = result.select(database, name.toString())
 
         //db에 값이 존재했을때 그리고 PlantListFragment에서 선택했을때
         //0이면 존재하지 않음
         //1이면 존재함
-
         //플러스 버튼을 보여줘야 할때
-        if (result == 1 && fragment == "PlantListFragment") {
+        if (count == 1 && fragment == "PlantListFragment") {
             imgbtn_my_garden.visibility = View.INVISIBLE
             imgbtn_my_garden_delete.visibility = View.INVISIBLE
         }
         //db에 값이 존재했을때 그리고 MyGardenFragment에서 선택했을때
         //휴지통 이미지 버튼을 보여주기 위해서
-        else if (result == 1 && fragment == " MyGardenFragment") {
+        else if (count == 1 && fragment == " MyGardenFragment") {
             imgbtn_my_garden_delete.visibility = View.VISIBLE
             imgbtn_my_garden.visibility = View.INVISIBLE
         }
@@ -89,16 +91,19 @@ class SelectFruitActivity : AppCompatActivity() {
         }
 
 
+        //과일 추가하기
         imgbtn_my_garden.setOnClickListener {
-            //insert함수 호출
-            dbHelper.insert(database, name.toString(), content.toString(),image.toString() )
+            val insert = Repository()
+            insert.insertPlant(dbHelper, name.toString(), content.toString(), image.toString())
             Toast.makeText(this, "추가 되었습니다", Toast.LENGTH_SHORT).show()
             imgbtn_my_garden.visibility = View.INVISIBLE
         }
 
+
         imgbtn_my_garden_delete.setOnClickListener {
             showDialog(name!!, dbHelper, database)
         }
+
     }
 
 
@@ -117,16 +122,11 @@ class SelectFruitActivity : AppCompatActivity() {
 
         val bt_dialog_yes = dialog.findViewById<Button>(R.id.bt_dialog_yes)
         bt_dialog_yes.setOnClickListener() {
-            Delte(fruit_name, dbHelper, database)
+            val delete = Repository();
+            delete.deletePlant(dbHelper, fruit_name)
             dialog.dismiss()
+            Toast.makeText(this, "삭제 되었습니다", Toast.LENGTH_SHORT).show()
+            onBackPressed()
         }
-
-
-    }
-
-    fun Delte(fruit_name: String, dbHelper: DBHelper, database: SQLiteDatabase) {
-        dbHelper.delete(database, fruit_name)
-        Toast.makeText(this, "삭제 되었습니다", Toast.LENGTH_SHORT).show()
-        onBackPressed()
     }
 }

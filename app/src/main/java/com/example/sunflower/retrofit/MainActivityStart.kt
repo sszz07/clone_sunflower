@@ -1,4 +1,4 @@
-package com.example.sunflower.retrofitTest
+package com.example.sunflower.retrofit
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -6,24 +6,13 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import com.bumptech.glide.Glide
 import com.example.sunflower.R
-import com.example.sunflower.retrofitTest.Constants.TAG
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import okhttp3.Dispatcher
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.NullPointerException
 
 class MainActivityStart : AppCompatActivity() {
     var photoList = ArrayList<Photo>()

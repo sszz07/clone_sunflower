@@ -1,4 +1,4 @@
-package com.example.sunflower.retrofitTest
+package com.example.sunflower.retrofit
 
 import com.google.gson.JsonElement
 import retrofit2.Call

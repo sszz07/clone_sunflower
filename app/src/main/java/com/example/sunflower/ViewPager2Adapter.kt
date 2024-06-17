@@ -1,4 +1,4 @@
-package com.example.sunflower.adapter
+package com.example.sunflower
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity

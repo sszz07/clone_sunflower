@@ -1,7 +1,7 @@
-package com.example.sunflower.retrofitTest
+package com.example.sunflower.retrofit
 
 import android.util.Log
-import com.example.sunflower.retrofitTest.Constants.TAG
+import com.example.sunflower.retrofit.Constants.TAG
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response

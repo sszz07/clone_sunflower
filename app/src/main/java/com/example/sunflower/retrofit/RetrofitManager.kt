@@ -1,7 +1,7 @@
-package com.example.sunflower.retrofitTest
+package com.example.sunflower.retrofit
 
 import android.util.Log
-import com.example.sunflower.retrofitTest.Constants.TAG
+import com.example.sunflower.retrofit.Constants.TAG
 import com.google.gson.JsonElement
 import retrofit2.Call
 import retrofit2.Response

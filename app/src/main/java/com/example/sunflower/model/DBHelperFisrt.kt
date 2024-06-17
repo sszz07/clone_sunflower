@@ -1,9 +1,10 @@
-package com.example.sunflower
+package com.example.sunflower.model
 
 import android.annotation.SuppressLint
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
 
 
 class DBHelperFisrt(
@@ -38,10 +39,9 @@ class DBHelperFisrt(
     //select문
     //디비에 저장되어있는지 존재 여부 확인
     @SuppressLint("Range", "Recycle")
-    fun select(db: SQLiteDatabase, fruitName: String): Int {
-        val sql = " SELECT * FROM my_garden  WHERE fruit_name='${fruitName}'"
+    fun select(db: SQLiteDatabase): Int {
+        val sql = " SELECT * FROM first_plant"
         val result = db.rawQuery(sql, null)
-
 
         if (result.getCount() > 0) {
             return result.getCount()
@@ -49,6 +49,7 @@ class DBHelperFisrt(
             return 0
         }
     }
+
 
     fun delete(db: SQLiteDatabase, fruit_name: String) {
         val sql = " DELETE FROM first_plant WHERE name='${fruit_name}'"

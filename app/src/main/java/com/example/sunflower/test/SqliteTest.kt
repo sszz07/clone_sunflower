@@ -6,7 +6,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import com.example.sunflower.DBHelper
+import com.example.sunflower.model.DBHelper
 import com.example.sunflower.R
 
 
